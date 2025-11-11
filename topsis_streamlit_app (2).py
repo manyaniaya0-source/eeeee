@@ -186,12 +186,13 @@ with tab2:
         st.info(f"📋 Total: {num_alternatives} alternatives × {num_sub_criteria} sous-critères")
         
         # Créer le DataFrame pour la saisie
-        if st.session_state.decision_matrix is None or st.session_state.decision_matrix.shape != (num_alternatives, num_sub_criteria):
-            st.session_state.decision_matrix = pd.DataFrame(
-               matrix = np.random.uniform(1, 10, size=(num_alternatives, num_sub_criteria))
-                columns=all_sub_criteria,
-                index=[f"Alternative {i+1}" for i in range(num_alternatives)]
-            )
+if st.session_state.decision_matrix is None or st.session_state.decision_matrix.shape != (num_alternatives, num_sub_criteria):
+    st.session_state.decision_matrix = pd.DataFrame(
+        data=np.random.uniform(1, 10, size=(num_alternatives, num_sub_criteria)),
+        columns=all_sub_criteria,
+        index=[f"Alternative {i+1}" for i in range(num_alternatives)]
+    )
+
         
         st.markdown("### 📝 Saisir les valeurs de performance")
         edited_df = st.data_editor(
