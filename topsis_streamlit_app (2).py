@@ -188,7 +188,7 @@ with tab2:
         # Créer le DataFrame pour la saisie
         if st.session_state.decision_matrix is None or st.session_state.decision_matrix.shape != (num_alternatives, num_sub_criteria):
             st.session_state.decision_matrix = pd.DataFrame(
-                np.random.randint(1, 10, size=(num_alternatives, num_sub_criteria)),
+               matrix = np.random.uniform(1, 10, size=(num_alternatives, num_sub_criteria))
                 columns=all_sub_criteria,
                 index=[f"Alternative {i+1}" for i in range(num_alternatives)]
             )
