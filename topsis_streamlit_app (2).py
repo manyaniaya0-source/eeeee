@@ -194,7 +194,7 @@ if st.session_state.decision_matrix is None or st.session_state.decision_matrix.
     )
 
         
-        st.markdown("### 📝 Saisir les valeurs de performance")
+ st.markdown("### 📝 Saisir les valeurs de performance")
         edited_df = st.data_editor(
             st.session_state.decision_matrix,
             use_container_width=True,
